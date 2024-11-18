@@ -4,23 +4,33 @@ const DOMSelectors = {
     container: document.querySelector(".container")
 }
 
-async function getFilteredData(character) {
+async function getFilteredData(character, use) {
     try {
         const individualResponse = await fetch(`https://genshin.jmp.blue/characters/${encodeURIComponent(character)}`);
         if (individualResponse.status != 200) {
             throw new Error(individualResponse);
         } else {
             const individualData = await individualResponse.json();
-            DOMSelectors.container.replaceChildren();
-
+            if (use === "create") {
+                DOMSelectors.container.replaceChildren();
+                DOMSelectors.container.insertAdjacentHTML("beforeend",
+                    `<button class="card" id="">
+                        <h1 class="name">${individualData.name}</h1>
+                        <h3 class="title">${individualData.title}</h3>
+                        <img src="" alt="" class="picture">
+                    </button>`
+                )
+            } else if (use === "element") {
+                return (individualData.vision);
+            } else if (use === "title") {
+                return (individualData.title);
+            }
         }
     } catch (error) {
         console.log(error);
         alert("sorry could not find that character");
     }
 }
-
-getFilteredData("furina");
 
 async function getData() {
     try {
@@ -31,9 +41,9 @@ async function getData() {
             const data = await response.json();
             data.forEach((character) => {
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<button class="card" id="">
+                    `<button class="card" id="${getFilteredData(character, "element")}">
                         <h1 class="name">${character}</h1>
-                        <h3 class="title"></h3>
+                        <h3 class="title">${getFilteredData(character, "title")}</h3>
                         <img src="" alt="" class="picture">
                     </button>
                     `
