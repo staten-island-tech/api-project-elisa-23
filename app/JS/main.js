@@ -14,16 +14,20 @@ async function getFilteredData(character, use) {
             if (use === "create") {
                 DOMSelectors.container.replaceChildren();
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<button class="card" id="">
+                    `<button class="card" id="${individualData.element}" data-id="${character}">
                         <h1 class="name">${individualData.name}</h1>
                         <h3 class="title">${individualData.title}</h3>
-                        <img src="" alt="" class="picture">
+                        <img src="${`https://genshin.jmp.blue/characters/${character}/gacha-splash`}" alt="the gacha splash art of ${character}" class="picture">
                     </button>`
                 )
             } else if (use === "element") {
                 return (individualData.vision);
             } else if (use === "title") {
-                return (individualData.title);
+                if (individualData.title !== "undefined") {
+                    return (individualData.title);
+                } else {
+                    return ("none");
+                }
             }
         }
     } catch (error) {
@@ -39,16 +43,18 @@ async function getData() {
             throw new Error(response);
         } else {
             const data = await response.json();
-            data.forEach((character) => {
+            for (const character of data) {     /* or else i can't use await */
+                const element = await getFilteredData(character, "element");        /* or else it will return the promise */
+                const title = await getFilteredData(character, "title");
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<button class="card" id="${getFilteredData(character, "element")}">
+                    `<button class="card" id="${element}" data-id="${character}">
                         <h1 class="name">${character}</h1>
-                        <h3 class="title">${getFilteredData(character, "title")}</h3>
-                        <img src="" alt="" class="picture">
+                        <h3 class="title">${title}</h3>
+                        <img src="${`https://genshin.jmp.blue/characters/${character}/gacha-splash`}" alt="the gacha splash art of ${character}" class="picture">
                     </button>
                     `
                 )
-            });
+            }
         }
     } catch (error) {
         console.log(error);
