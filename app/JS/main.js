@@ -1,4 +1,5 @@
 import "../CSS/style.css";
+import { filteredCard } from "./filter";
 
 const DOMSelectors = {
     container: document.querySelector(".container")
@@ -11,16 +12,7 @@ async function getFilteredData(character, use) {
             throw new Error(individualResponse);
         } else {
             const individualData = await individualResponse.json();
-            if (use === "create") {
-                DOMSelectors.container.replaceChildren();
-                DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<button class="card" id="${individualData.element}" data-id="${character}">
-                        <h1 class="name">${individualData.name}</h1>
-                        <h3 class="title">${individualData.title}</h3>
-                        <img src="${`https://genshin.jmp.blue/characters/${character}/gacha-splash`}" alt="the gacha splash art of ${character}" class="picture">
-                    </button>`
-                )
-            } else if (use === "element") {
+            if (use === "element") {
                 return (individualData.vision);
             } else if (use === "title") {
                 if (individualData.title !== "undefined") {
@@ -47,14 +39,15 @@ async function getData() {
                 const element = await getFilteredData(character, "element");        /* or else it will return the promise */
                 const title = await getFilteredData(character, "title");
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<button class="card" id="${element}" data-id="${character}">
+                    `<div class="card" id="${element}" data="${character}">
                         <h1 class="name">${character}</h1>
                         <h3 class="title">${title}</h3>
-                        <img src="${`https://genshin.jmp.blue/characters/${character}/gacha-splash`}" alt="the gacha splash art of ${character}" class="picture">
-                    </button>
-                    `
+                        <img src="${`https://genshin.jmp.blue/characters/${character}/icon`}" alt="the icon of ${character}" class="picture">
+                        <button class="more">more</button>
+                    </div>`
                 )
             }
+            filteredCard();
         }
     } catch (error) {
         console.log(error);
