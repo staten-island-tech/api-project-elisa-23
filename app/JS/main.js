@@ -1,5 +1,4 @@
 import "../CSS/style.css";
-import { filteredCard } from "./filter";
 
 const DOMSelectors = {
     container: document.querySelector(".container")
@@ -47,12 +46,15 @@ async function getData() {
                     </div>`
                 )
             }
-            filteredCard();
         }
     } catch (error) {
         console.log(error);
         alert("sorry could not find that category")
     }
+}
+
+function getCharacterData() {
+
 }
 
 getData();
