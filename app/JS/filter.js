@@ -4,12 +4,10 @@ const DOMSelectors = {
 }
 
 function filteredCard() {
-    DOMSelectors.more.addEventListener("click", function () {
-        DOMSelectors.container.replaceChildren();
-        /* DOMSelectors.container.insertAdjacentHTML("beforeend",
-            `
-            `
-        ) */
+    DOMSelectors.more.forEach((button) => {
+        button.addEventListener("click", function () {
+            console.log(button.getAttribute("data-id"));
+        });
     });
 }
 
