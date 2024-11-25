@@ -38,21 +38,19 @@ async function getData() {
                 const element = await getFilteredData(character, "element");        /* or else it will return the promise */
                 const title = await getFilteredData(character, "title");
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<div 
-                        class="w-[27%] h-[3rem] bg-yellow-200 rounded-lg flex flex-col items-center justify-evenly mt-20 transition-all duration-700 hover:shadow-lg" 
-                        id="${element}" 
-                        data-id="${character}">
-                        <h1 class="text-xl font-bold">${character}</h1>
-                        <h3 class="text-gray-600 text-center">${title}</h3>
-                        <img 
-                            src="https://genshin.jmp.blue/characters/${character}/icon" 
-                            alt="The icon of ${character}" 
-                            class="w-[3rem] h-[3rem] rounded-full object-cover shadow-md">
-                        <button 
-                            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600" 
-                            data-id="${character}-button">
-                            More
-                        </button>
+                    `<div data-theme="dracula" class="card card-compact bg-base-100 w-96 shadow-xl" id="${element}" data-id="${character} bg-accent">
+                        <figure>
+                            <img
+                                src="https://genshin.jmp.blue/characters/${character}/icon-big"
+                                alt="The icon of ${character}" />
+                        </figure>
+                        <div class="card-body items-center text-center">
+                            <h2 class="card-title">${character}</h2>
+                            <p>${title}</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary">More</button>
+                            </div>
+                        </div>
                     </div>`
                 )
             }
