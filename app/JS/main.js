@@ -38,17 +38,18 @@ async function getData() {
                 const element = await getFilteredData(character, "element");        /* or else it will return the promise */
                 const title = await getFilteredData(character, "title");
                 DOMSelectors.container.insertAdjacentHTML("beforeend",
-                    `<div data-theme="dracula" class="p-4 w-120 shadow-xl bg-secondary items-center" id="${element}" data-id="${character} bg-accent">
-                        <figure class="bg-primary">
+                    `<div data-theme="dracula" class="card card-side shadow-xl bg-accent w-20 mt-4" data-id="${character}">
+                        <figure class="px-10 pt-10">
                             <img
                                 src="https://genshin.jmp.blue/characters/${character}/icon-big"
-                                alt="The icon of ${character}" />
+                                alt="The icon of ${character}"
+                                class="rounded-xl" />
                         </figure>
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title text-center">${character}</h2>
+                        <div class="card-body">
+                            <h2 class="card-title">${character}</h2>
                             <p>${title}</p>
                             <div class="card-actions justify-end">
-                                <button class="btn bg-primary">More</button>
+                                <button class="btn btn-primary">More</button>
                             </div>
                         </div>
                     </div>`
