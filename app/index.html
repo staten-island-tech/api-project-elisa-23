@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div class="navbar bg-base-100">
+  <div class="navbar bg-base-100 sticky z-[999] top-[0]">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -35,6 +35,12 @@
       </button>
     </div>
   </div>
+  <!-- <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+    <div class="collapse-title text-xl font-medium">Focus me to see content</div>
+    <div class="collapse-content">
+      <p>tabindex="0" attribute is necessary to make the div focusable</p>
+    </div>
+  </div> -->
   <!-- <button class="btn btn-outline btn-primary">Primary</button> -->
   <!-- <div class="card card-side bg-base-100 shadow-xl">
     <figure>
@@ -48,7 +54,7 @@
       </div>
     </div>
   </div> -->
-  <div class="w-full h-full bg-[url('/background.png')] bg-cover" id="homepage-container">
+  <div class="grid gap-4 grid-cols-1 p-4 w-full h-full bg-[url('/background.png')] bg-cover" id="homepage-container">
   </div>
   <div class="w-full h-full bg-[url('/background.png')] bg-cover" id="more-container">
   </div>

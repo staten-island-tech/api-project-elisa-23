@@ -1,4 +1,5 @@
 import "../CSS/style.css";
+import { insertCharacterinfo } from "./more";
 
 const DOMSelectors = {
     container: document.querySelector("#container")
@@ -53,6 +54,7 @@ async function getData() {
                     </div>`
                 )
             }
+            insertCharacterinfo();
         }
     } catch (error) {
         console.log(error);
