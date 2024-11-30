@@ -38,7 +38,7 @@ function insertCharacterinfo() {
                 rarity = "★ ★ ★ ★";
             }
             DOMSelectors.moreContainer.insertAdjacentHTML("beforeend",
-                `<div class="card bg-base-100 w-[70%] h-full shadow-xl">
+                `<div class="card bg-base-100 w-[70%] h-full shadow-xl m-10">
                     <figure class="px-10 pt-10">
                         <img
                         src="https://genshin.jmp.blue/characters/${character}/icon-big"
@@ -59,11 +59,66 @@ function insertCharacterinfo() {
                         <p>Birthday: ${data.birthday}</p>
                         <p>Affiliated with ${data.affiliation}</p>
                         <p>${data.description}</p>
+                        <br>
                         <div class="card-actions">
                             <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
                                 <div class="collapse-title text-xl font-medium">View Skills</div>
                                 <div class="collapse-content">
-                                    <p>tabindex="0" attribute is necessary to make the div focusable</p>
+                                    <p>${data.skillTalents[0].name}</p>
+                                    <p>${data.skillTalents[0].unlock}</p>
+                                    <p>${data.skillTalents[0].description}</p>
+                                    <br>
+                                    <p>${data.skillTalents[1].name}</p>
+                                    <p>${data.skillTalents[1].unlock}</p>
+                                    <p>${data.skillTalents[1].description}</p>
+                                    <br>
+                                    <p>${data.skillTalents[2].name}</p>
+                                    <p>${data.skillTalents[2].unlock}</p>
+                                    <p>${data.skillTalents[2].description}</p>
+                                </div>
+                            </div>
+                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+                                <div class="collapse-title text-xl font-medium">View Passives</div>
+                                <div class="collapse-content">
+                                    <p>${data.passiveTalents[0].name}</p>
+                                    <p>${data.passiveTalents[0].unlock}</p>
+                                    <p>${data.passiveTalents[0].description}</p>
+                                    <br>
+                                    <p>${data.passiveTalents[1].name}</p>
+                                    <p>${data.passiveTalents[1].unlock}</p>
+                                    <p>${data.passiveTalents[1].description}</p>
+                                    <br>
+                                    <p>${data.passiveTalents[2].name}</p>
+                                    <p>${data.passiveTalents[2].unlock}</p>
+                                    <p>${data.passiveTalents[2].description}</p>
+                                </div>
+                            </div>
+                            <div tabindex="0" class="collapse collapse-arrow border-base-300 bg-base-200 border">
+                                <div class="collapse-title text-xl font-medium">View Constellations</div>
+                                <div class="collapse-content">
+                                    <p>${data.constellations[0].name}</p>
+                                    <p>${data.constellations[0].unlock}</p>
+                                    <p>${data.constellations[0].description}</p>
+                                    <br>
+                                    <p>${data.constellations[1].name}</p>
+                                    <p>${data.constellations[1].unlock}</p>
+                                    <p>${data.constellations[1].description}</p>
+                                    <br>
+                                    <p>${data.constellations[2].name}</p>
+                                    <p>${data.constellations[2].unlock}</p>
+                                    <p>${data.constellations[2].description}</p>
+                                    <br>
+                                    <p>${data.constellations[3].name}</p>
+                                    <p>${data.constellations[3].unlock}</p>
+                                    <p>${data.constellations[3].description}</p>
+                                    <br>
+                                    <p>${data.constellations[4].name}</p>
+                                    <p>${data.constellations[4].unlock}</p>
+                                    <p>${data.constellations[4].description}</p>
+                                    <br>
+                                    <p>${data.constellations[5].name}</p>
+                                    <p>${data.constellations[5].unlock}</p>
+                                    <p>${data.constellations[5].description}</p>
                                 </div>
                             </div>
                         </div>
