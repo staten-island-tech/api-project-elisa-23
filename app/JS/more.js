@@ -7,7 +7,7 @@ const DOMSelectors = {
 
 async function getCharacterinfo(character) {
     try {
-        const individualResponse = await fetch(`https://genshin.jmp.blue/characters/${encodeURIComponent(character)}`);
+        const individualResponse = await fetch(`https://genshin.jmp.blue/characters/${character}`);
         if (individualResponse.status != 200) {
             throw new Error(individualResponse);
         } else {
