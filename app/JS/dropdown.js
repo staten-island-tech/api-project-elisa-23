@@ -9,15 +9,15 @@ const DOMSelectors = {
 }
 
 function gallery() {
-    DOMSelectors.gallery.addEventListener("click", function () {
+    DOMSelectors.gallery.addEventListener("click", async function () {
         DOMSelectors.container.replaceChildren();
         DOMSelectors.homepageContainer.replaceChildren();
         DOMSelectors.moreContainer.replaceChildren();
-        getData();
+        await getData();
     })
 }
 
-function homepage() {
+/* function homepage() {
     DOMSelectors.homepage.addEventListener("click", function () {
         DOMSelectors.container.replaceChildren();
         DOMSelectors.homepageContainer.replaceChildren();
@@ -69,6 +69,6 @@ function homepage() {
             </div>`
         )
     })
-}
+} */
 
-export { homepage, gallery };
+export { gallery };
