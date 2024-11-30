@@ -21,6 +21,7 @@ function homepage() {
     DOMSelectors.homepage.addEventListener("click", function () {
         DOMSelectors.container.replaceChildren();
         DOMSelectors.homepageContainer.replaceChildren();
+        DOMSelectors.moreContainer.replaceChildren();
         DOMSelectors.homepageContainer.insertAdjacentHTML("beforeend",
             `<div data-theme="dracula" class="carousel carousel-center rounded-box max-w-full space-x-4 p-4 bg-accent">
                 <div class="carousel-item">
