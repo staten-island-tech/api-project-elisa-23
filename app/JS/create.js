@@ -42,7 +42,8 @@ async function getData() {
                         <figure class="px-10 pt-10">
                             <img
                                 src="https://genshin.jmp.blue/characters/${character}/icon-big"
-                                alt="The icon of ${character}" />
+                                alt="The icon of ${character}"
+                                class="rounded-xl" />
                         </figure>
                         <div class="card-body">
                             <h2 class="card-title">${character}</h2>
